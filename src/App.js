@@ -1,43 +1,49 @@
 import React from 'react'
-import Header from './components/Header'
+import './App.scss'
+import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
-import { Layout } from 'antd';
+import { Layout, Space } from 'antd';
+import About from './components/About';
+import Education from './components/Education';
 const { Content, Footer, Sider } = Layout;
 
 const App = () => {
   return (
-    <Layout>
+    <Layout
+      style={{background: 'white'}}
+    >
       <Content
         style={{
-          padding: '0 50px',
+          margin: '0 auto',
         }}
       >
         <Layout
           className="site-layout-background"
-          style={{
-            padding: '24px 0',
-          }}
         >
-          <Sider className="site-layout-background" width={200}>
-            <Header />
+          <Sider className="site-layout-background" 
+            style={{
+              padding: '30px 0px 30px 0',
+
+            }}
+            width={330}>
+            <Sidebar />
           </Sider>
           <Content
             style={{
-              padding: '0 24px',
               minHeight: 280,
+              maxWidth: '870px',
+              width: '100vw',
             }}
           >
-            <Hero />
+          <Hero />
+          <Space direction="vertical" size={60} style={{padding: '60px 38px 0 38px'}}>
+            <About />
+            <Education />
+          </Space>
+            
           </Content>
         </Layout>
       </Content>
-      <Footer
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        Ant Design ©2018 Created by Ant UED
-      </Footer>
     </Layout>
   )
 }
